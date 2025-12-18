@@ -218,6 +218,8 @@
    FULLSCREEN MOBILE MODE
 ================================ */
 @media (max-width: 1200px) {
+  
+ 
 
   body {
     background: #000;
@@ -229,6 +231,7 @@
     height: 100vh;
     border-radius: 0;
     padding: 12px;
+     padding-bottom: 70px;
     border: none;
     box-shadow: none;
     background: linear-gradient(180deg, #050010, #000);
@@ -282,11 +285,11 @@
 
   /* MOBILE FOOTER CONTROLS */
   .radio-footer {
-    position: absolute;
-    bottom: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-    gap: 14px;
+ position: absolute;
+  bottom: calc(40px + env(safe-area-inset-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 14px;
   }
 
   .radio-btn {
