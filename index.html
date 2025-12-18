@@ -11,8 +11,8 @@
 
 <div class="radio-wrapper">
   <div class="radio-header">
-    <span class="station">WSQK 94.5 FM</span>
-    <span class="tagline">THE SQUAWK</span>
+    <h1 class="station">WSQK 94.5 FM</h1>
+    <h2 class="tagline">THE SQUAWK</h2>
   </div>
 
   <div class="radio-body">
@@ -117,7 +117,7 @@
 .tagline {
   font-family: 'Press Start 2P', cursive;
   color: #ff00ff;
-  font-size: 10px;
+  font-size: 19px;
 }
 
 /* BODY */
@@ -247,11 +247,12 @@
   }
 
   .station {
-    font-size: 16px;
+    font-size: 28px;
   }
 
   .tagline {
-    font-size: 9px;
+    font-size: 12px;
+    margin-top:-10px;
   }
 
   .radio-body {
@@ -289,9 +290,9 @@
   /* MOBILE FOOTER CONTROLS */
   .radio-footer {
  position: absolute;
-  bottom: calc(40px + env(safe-area-inset-bottom));
+  bottom: 120px; /* higher than before */
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-20%);
   gap: 14px;
   }
 
