@@ -40,6 +40,21 @@
   <button class="radio-btn label">REC</button>
 </div>
 </div>
+  
+ <script>
+   <script>
+  setTimeout(() => {
+    document.body.classList.add('glitch-once');
+
+    // remove class so animation can replay later if needed
+    setTimeout(() => {
+      document.body.classList.remove('glitch-once');
+    }, 900);
+
+  }, 6000); // runs once after 6 seconds
+</script>
+
+  
 
 </body>
 </html>
@@ -229,9 +244,9 @@
   .radio-wrapper {
     width: 100vw;
     height: 100vh;
-    border-radius: 0;
+    border-radius: 0px;
     padding: 12px;
-     padding-bottom: 70px;
+     padding-bottom: 120px;
     border: none;
     box-shadow: none;
     background: linear-gradient(180deg, #050010, #000);
@@ -264,7 +279,7 @@
   /* FULLSCREEN VIDEO */
   .screen {
     height: 100%;
-    border-radius: 10px;
+    border-radius: 30px;
   }
 
   .screen iframe {
@@ -299,4 +314,40 @@
 }
 
 
+  
+  /* ================================
+   SIMPLE ONE-TIME GLITCH
+================================ */
+
+body.glitch-once {
+  animation: glitchOnce 0.8s linear;
+}
+
+@keyframes glitchOnce {
+  0% {
+    transform: translate(0);
+    filter: none;
+  }
+  15% {
+    transform: translate(-4px, 2px);
+    filter: hue-rotate(20deg) contrast(140%);
+  }
+  30% {
+    transform: translate(4px, -2px);
+    filter: drop-shadow(-2px 0 red) drop-shadow(2px 0 cyan);
+  }
+  45% {
+    transform: translate(-6px, 1px);
+  }
+  60% {
+    transform: translate(6px, -1px);
+    filter: hue-rotate(-20deg);
+  }
+  100% {
+    transform: translate(0);
+    filter: none;
+  }
+}
+
+  
 </style>
