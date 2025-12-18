@@ -16,6 +16,7 @@
   <div class="radio-header">
     <h1 class="station">WSQK 94.5 FM</h1>
     <h2 class="tagline">THE SQUAWK</h2>
+    
   </div>
 
   <div class="radio-body">
@@ -44,9 +45,24 @@
 </div>
 </div>
   
-
+  </div>
+  </div>
+</div>
+  <br>
   
 
+  
+  
+  
+  <div class="hawkins-clock">
+  <span id="clock-label">HAWKINS, IN</span>
+  <span id="digital-clock">00:00:00</span>
+</div>
+
+  
+  
+  
+  
 </body>
 </html>
 
@@ -218,6 +234,53 @@
   
   
   
-  
+  /* 80s DIGITAL CLOCK */
+.hawkins-clock {
+  display: flex; flex-direction: column;
+   align-items: center;
+  margin-bottom: 12px;
+  font-family: 'Orbitron', sans-serif;
+  position:fixed;
+  bottom:50px;
+}
+
+#clock-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #ff4444;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+#digital-clock {
+  font-size: 22px;
+  color: #ff0000;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 5px #ff0000,
+    0 0 10px #ff0000,
+    0 0 20px #ff2222,
+    0 0 40px rgba(255,0,0,0.6);
+}
+
   
 </style>
+<script>
+  function updateClock() {
+    const now = new Date();
+
+    const time = now.toLocaleTimeString('en-US', {
+      timeZone: 'America/New_York',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    });
+
+    document.getElementById('digital-clock').textContent = time;
+  }
+
+  updateClock();
+  setInterval(updateClock, 1000);
+</script>
+
