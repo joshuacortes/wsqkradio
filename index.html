@@ -114,22 +114,37 @@
   transform: scale(1.05);
   box-shadow: 0 0 25px #00ff88;
 }
-
-/* Upside Down - spooky haunted red vibe */
 .enter-upside-down {
-  background: #330000;
+  position: relative;
+  background: #200000;
   color: #ff0000;
   border: 3px solid #ff0000;
-  box-shadow: 0 0 15px #ff4444;
+  box-shadow: 0 0 15px #ff0000;
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-weight: bold;
   font-family: 'Press Start 2P', cursive;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+   transform: scale(1.05) rotate(-2deg);
+  box-shadow: 
+    0 0 25px #ff0000, 
+    0 0 40px #aa0000;
+  animation: simple-glitch 0.15s steps(2) infinite;
 }
 
+/* Simple glitch animation */
+@keyframes simple-glitch {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-1px, 1px); }
+  40%  { transform: translate(1px, -1px); }
+  60%  { transform: translate(-1px, 0); }
+  80%  { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+/* Hover effect */
 .enter-upside-down:hover {
-  transform: scale(1.05) rotate(-2deg);
-  box-shadow: 0 0 25px #ff0000, 0 0 40px #aa0000;
+ 
 }
 
   
