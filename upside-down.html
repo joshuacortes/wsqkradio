@@ -1,124 +1,94 @@
-<!-- <img id="img" src="https://hd.unsplash.com/photo-1429081172764-c0ee67ab9afd" /> -->
-<img id="img" src="https://images.unsplash.com/photo-1723739003389-cbcdbd54281a?q=80" />
- 
+<div class="hero">
+  <!-- foreground / mid orbs -->
+  <div class="orb orb--large"></div>
+  <div class="orb orb--medium"></div>
 
-<div id="info">RUN</div>
+  <!-- distant orbs -->
+  <div class="orb orb--tiny"></div>
+  <div class="orb orb--tiny"></div>
+  <div class="orb orb--tiny"></div>
+  <div class="orb orb--tiny"></div>
+  <div class="orb orb--tiny"></div>
+  <div class="orb orb--tiny"></div>
+  <div class="orb orb--tiny"></div>
+  <div class="orb orb--tiny"></div>
+  <div class="orb orb--tiny"></div>
+  <div class="orb orb--tiny"></div>
+</div>
+
+
 <style>
-  body {
+  body{
+    margin:0;
+    padding:0;
+  }
+  .hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1723739003389-cbcdbd54281a?q=80')
+    center / cover no-repeat;
   overflow: hidden;
 }
 
-#info {
-  position: fixed;
-  padding: 10px;
-  left: 0;
-  top: 0;
-  color: #333;
-  user-select: none;
-  font-weight: bold;
-  text-shadow:
-    -1px -1px 0 rgba(255,255,255,0.5),
-    1px -1px 0 rgba(255,255,255,0.5),
-    -1px 1px 0 rgba(255,255,255,0.5),
-    1px 1px 0 rgba(255,255,255,0.5);
+/* Base orb */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(180,200,255,0.22),
+    rgba(80,90,130,0.09)
+  );
+  filter: blur(6px);
+  mix-blend-mode: screen;
+  animation: float infinite ease-in-out;
 }
+
+/* Large / mid orbs */
+.orb--large {
+  width: 240px;
+  height: 240px;
+  top: 60%;
+  left: 30%;
+  opacity: 0.95;
+  animation-duration: 30s;
+}
+.orb--medium {
+  width: 140px;
+  height: 140px;
+  top: 25%;
+  left: 70%;
+  opacity: 0.9;
+  animation-duration: 24s;
+}
+
+/* Tiny distant orbs */
+.orb--tiny {
+  width: 30px;
+  height: 30px;
+  opacity: 1.92;
+  filter: blur(10px);
+  animation-duration: 40s;
+}
+
+/* Random placement for tiny orbs */
+.orb--tiny:nth-child(3) { top: 10%; left: 15%; }
+.orb--tiny:nth-child(4) { top: 20%; left: 45%; }
+.orb--tiny:nth-child(5) { top: 35%; left: 70%; }
+.orb--tiny:nth-child(6) { top: 50%; left: 25%; }
+.orb--tiny:nth-child(7) { top: 65%; left: 55%; }
+.orb--tiny:nth-child(8) { top: 75%; left: 80%; }
+.orb--tiny:nth-child(9) { top: 85%; left: 10%; }
+.orb--tiny:nth-child(10){ top: 40%; left: 90%; }
+.orb--tiny:nth-child(11){ top: 15%; left: 80%; }
+.orb--tiny:nth-child(12){ top: 60%; left: 5%; }
+
+/* Slow, barely noticeable drift */
+@keyframes float {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(20px, -30px); }
+  100% { transform: translate(0, 0); }
+}
+
 </style>
-
-<script>
-  
-// Acceleration value between 0 and 1
-// Smaller values result in a slower/smoother looking animation
-var acceleration = 0.05;
-
-var img = {
-  element: document.querySelector("#img"),
-  xMax: 0,
-  yMax: 0,
-  x: 0,
-  y: 0
-};
-
-var mouse = { x: 0, y: 0 };
-
-var vw = 0;
-var vh = 0;
-
-function init() {
-  
-  // Sets viewport dimensions and img x/y limits
-  resize();
-    
-  // Set _gsTransform on element
-  TweenLite.set(img.element, { x: 0, y: 0 });
-  
-  // Alias for _gsTransform object
-  var pos = img.element._gsTransform;
-    
-  // What you set for the x, y, and duration really doesn't 
-  // matter since we're not using them. We just want an 
-  // infinite tween that will run the modifier functions
-  TweenMax.to(img.element, 1000, {
-    x: 0, 
-    y: 0, 
-    repeat: -1,
-    ease: Linear.easeNone,
-    modifiers: {
-      x: function() {
-        img.x = map(mouse.x, 0, vw, 0, img.xMax);
-        return pos.x + (img.x - pos.x) * acceleration;
-      },
-      y: function() {        
-        img.y = map(mouse.y, 0, vh, 0, img.yMax);
-        return pos.y + (img.y - pos.y) * acceleration;
-      }
-    }
-  });
-  
-  window.addEventListener("mousemove", moveAction);
-  window.addEventListener("touchmove", moveAction);
-  window.addEventListener("resize", resize);
-}
-
-/**
- * @param {number} x value to map
- * @param {number} a source min value
- * @param {number} b source max value
- * @param {number} c destination min value
- * @param {number} d destination max value
- */
-function map(x, a, b, c, d) {
-  return c + (d - c) * ((x - a) / (b - a)) || 0;
-}
-
-function resize() {
-  
-  vw = window.innerWidth;
-  vh = window.innerHeight;
-  
-  img.xMax = vw - img.element.naturalWidth;
-  img.yMax = vh - img.element.naturalHeight;
-}
-
-function moveAction(event) {
-  
-  if (event.targetTouches && event.targetTouches[0]) {
-    event.preventDefault();
-    mouse.x = event.targetTouches[0].clientX;
-    mouse.y = event.targetTouches[0].clientY;           
-  } else {
-    mouse.x = event.clientX;
-    mouse.y = event.clientY;
-  }
-}
-
-// Initialize app once image has loaded
-window.addEventListener("load", init);
-
-
-
-
-
-
-
-
-</script>
