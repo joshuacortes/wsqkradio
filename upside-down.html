@@ -62,8 +62,8 @@ const hue = document.getElementById('hue');
 // Apply distortion effect at x, y
 function applyEffect(x, y) {
   const rect = svg.getBoundingClientRect();
-  const dx = (x - rect.width / 2) / 6;
-  const dy = (y - rect.height / 2) / 6;
+  const dx = (x - rect.width / 2) / 2;
+  const dy = (y - rect.height / 2) / 2;
   displacement.setAttribute('scale', dx);
   hue.setAttribute('values', dy);
 }
