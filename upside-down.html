@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Random Multi-Swipes</title>
+<title>Random Multi-Swipes Slow</title>
 
 <style>
 body {
@@ -48,7 +48,7 @@ const svg = document.getElementById('svg');
 const displacement = document.getElementById('displacement');
 const hue = document.getElementById('hue');
 
-// --- helper function to apply distortion effect ---
+// Apply distortion effect at x, y
 function applyEffect(x, y) {
   const rect = svg.getBoundingClientRect();
   const dx = (x - rect.width / 2) / 6;
@@ -57,7 +57,7 @@ function applyEffect(x, y) {
   hue.setAttribute('values', dy);
 }
 
-// --- optional pointer control (real touch/mouse) ---
+// --- Optional real pointer control ---
 let isActive = false;
 let activePointerId = null;
 
@@ -85,7 +85,7 @@ svg.addEventListener('pointerup', endPointer);
 svg.addEventListener('pointercancel', endPointer);
 svg.addEventListener('pointerleave', endPointer);
 
-// --- Random multi-swipe animation ---
+// --- Random multi-swipe animation (slower) ---
 let swipePatterns = [];
 let currentSwipe = 0;
 let swipeStartTime = performance.now();
@@ -95,16 +95,12 @@ function generateSwipes() {
   swipePatterns = [];
   for (let i = 0; i < 3; i++) {
     swipePatterns.push({
-      // Random center point (20%-80% of SVG)
-      centerX: 0.2 + Math.random() * 0.6,
+      centerX: 0.2 + Math.random() * 0.6, // random center
       centerY: 0.2 + Math.random() * 0.6,
-      // Random duration between 7-8 seconds
-      duration: 7000 + Math.random() * 1000,
-      // Random amplitude
-      amplitudeX: 0.15 + Math.random() * 0.25,
-      amplitudeY: 0.05 + Math.random() * 0.15,
-      // Random speed multiplier for vertical motion
-      speedY: 0.5 + Math.random() * 1.0
+      duration: 14000 + Math.random() * 2000, // 14–16 seconds per swipe (slower!)
+      amplitudeX: 0.1 + Math.random() * 0.2, // slightly smaller amplitude for smoothness
+      amplitudeY: 0.03 + Math.random() * 0.1,
+      speedY: 0.3 + Math.random() * 0.6
     });
   }
 }
@@ -116,26 +112,25 @@ function autoSwipe(time) {
   const swipe = swipePatterns[currentSwipe];
   const elapsed = time - swipeStartTime;
 
-  // Check if swipe duration finished
+  // Move to next swipe pattern when duration ends
   if (elapsed > swipe.duration) {
     currentSwipe = (currentSwipe + 1) % swipePatterns.length;
     swipeStartTime = time;
     return requestAnimationFrame(autoSwipe);
   }
 
-  // Calculate normalized progress 0 → 1
   const t = elapsed / swipe.duration;
 
-  // Horizontal: back-and-forth using sine
+  // Horizontal: slow smooth back-and-forth
   const x = rect.width * (swipe.centerX + Math.sin(t * Math.PI * 2) * swipe.amplitudeX);
-  // Vertical: slower or faster oscillation
+  // Vertical: gentle oscillation
   const y = rect.height * (swipe.centerY + Math.cos(t * Math.PI * 2 * swipe.speedY) * swipe.amplitudeY);
 
   applyEffect(x, y);
   requestAnimationFrame(autoSwipe);
 }
 
-// Start automatic multi-swipe
+// Start the slow automatic swipes
 requestAnimationFrame(autoSwipe);
 </script>
 
