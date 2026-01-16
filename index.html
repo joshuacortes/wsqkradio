@@ -138,12 +138,6 @@
 
   <nav>
     <a href="/">Home</a>
-    <a href="/listen">Listen</a>
-    <a href="/schedule">Schedule</a>
-    <a href="/hawkins-indiana">Hawkins, IN</a>
-    <a href="/upside-down">Upside Down</a>
-    <a href="/about">About</a>
-    <a href="/contact">Contact</a>
   </nav>
 
   <section class="hero">
@@ -155,9 +149,91 @@
       underground sounds, and signals that drift between worlds.
     </p>
 
-    <a href="/listen" class="listen-btn">
-      ▶ LISTEN NOW
-    </a>
+   <div class="hawkins-radio-player">
+  <div class="radio-header">
+    <span class="signal-dot"></span>
+    <span class="radio-title">WSQK RADIO</span>
+    <span class="radio-sub">AFTERNOON HANGOUT</span>
+  </div>
+
+  <audio controls>
+    <source src="https://bzschoolofnursing.com/wp-content/uploads/2026/01/wsqk-radio-afternoon-hangout-vance-goodman.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="radio-footer">
+    📡 LIVE FROM HAWKINS, INDIANA
+  </div>
+</div>
+
+
+<style>
+  
+  .hawkins-radio-player {
+  max-width: 520px;
+  margin: 40px auto;
+  padding: 20px;
+  background: radial-gradient(circle at top, #1b0033, #000);
+  border: 3px solid #ff0055;
+  box-shadow:
+    0 0 12px #ff0055,
+    inset 0 0 20px rgba(255, 0, 85, 0.3);
+  font-family: 'Press Start 2P', monospace;
+  color: #00fff7;
+  text-align: center;
+}
+
+.radio-header {
+  margin-bottom: 15px;
+}
+
+.radio-title {
+  display: block;
+  font-size: 14px;
+  color: #ff0055;
+  text-shadow: 0 0 6px #ff0055;
+}
+
+.radio-sub {
+  display: block;
+  font-size: 9px;
+  margin-top: 6px;
+  color: #00fff7;
+}
+
+.signal-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #00ff00;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0 0 6px #00ff00;
+  animation: blink 1.2s infinite;
+}
+
+audio {
+  width: 100%;
+  margin-top: 12px;
+  filter: drop-shadow(0 0 6px #00fff7);
+}
+
+/* Footer */
+.radio-footer {
+  margin-top: 15px;
+  font-size: 8px;
+  color: #aaa;
+  text-shadow: 0 0 4px #444;
+}
+
+/* Blinking LED */
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.3; }
+}
+
+</style>
+
   </section>
 
   <section style="padding:40px 20px;">
