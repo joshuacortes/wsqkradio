@@ -65,7 +65,7 @@ const svg = document.getElementById('svg');
 const displacement = document.getElementById('displacement');
 const hue = document.getElementById('hue');
 
-svg.addEventListener('mousemove', e => {
+svg.addEventListener('pointermove', e => {
   const rect = svg.getBoundingClientRect();
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
