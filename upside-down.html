@@ -1,83 +1,72 @@
 <div class="container">
   <div class="scenery"></div>
+
   <div class="fog">
     <div class="fog__layer fog__layer--1"></div>
     <div class="fog__layer fog__layer--2"></div>
   </div>
 </div>
 
-
 <style>
-  .container {
+  body{
+    margin:0;
+    padding:0;
+  }
+.container {
   position: relative;
   height: 100vh;
   width: 100vw;
   background: #fff;
+  overflow: hidden;
 }
 
 .scenery {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+  inset: 0;
   background: url('https://images.unsplash.com/photo-1723739003389-cbcdbd54281a?q=80');
-  background-position: 50%;
-  background-repeat: no-repeat;
   background-size: cover;
-  overflow: hidden;
+  background-position: center;
 }
 
+/* fog wrapper */
 .fog {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   overflow: hidden;
-  z-index: 1;
-  
-  &__layer {
-    position: absolute;
-    height: 100vh;
-    width: 300vw;
-    z-index: 2;
-    
-    &--1 {
-      background: url('https://www.dropbox.com/s/dfdz7cqlpwsp1l9/fog-1.png?raw=1');
-      background-repeat: repeat-x;
-      background-size: contain;
-      background-position: center;
-      animation: marquee 190s linear infinite;
-      -webkit-animation: marquee 190s linear infinite;
-    }
-    
-    &--2 {
-       background: url('https://www.dropbox.com/s/4smivk3tas34moq/fog-2.png?raw=1');
-      background-repeat: repeat-x;
-      background-size: contain;
-      background-position: center;
-      animation: marquee 30s linear infinite;
-      -webkit-animation: marquee 30s linear infinite;
-    }
-  }
+  z-index: 2;
+}
+
+/* base fog layer */
+.fog__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 300vw;
+  z-index: 3;
+  background-repeat: repeat-x;
+  background-size: contain;
+  background-position: center;
+}
+
+/* fog layer 1 */
+.fog__layer--1 {
+  background-image: url('https://www.dropbox.com/s/dfdz7cqlpwsp1l9/fog-1.png?raw=1');
+  animation: marquee 190s linear infinite;
+}
+
+/* fog layer 2 */
+.fog__layer--2 {
+  background-image: url('https://www.dropbox.com/s/4smivk3tas34moq/fog-2.png?raw=1');
+  animation: marquee 30s linear infinite;
 }
 
 @keyframes marquee {
-  0% {
-    transform: translate3d(0, 0, 0);
+  from {
+    transform: translateX(0);
   }
-  
-  100% {
-    transform: translate3d(-200vw, 0, 0);
-  }
-}
-  
-@-webkit-keyframes marquee {
-  0% {
-    -webkit-transform: translate3d(0, 0, 0);
-  }
-  
-  100% {
-    -webkit-transform: translate3d(-200vw, 0, 0);
+  to {
+    transform: translateX(-200vw);
   }
 }
 </style>
