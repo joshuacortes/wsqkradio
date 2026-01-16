@@ -1,94 +1,83 @@
-<div class="hero">
-  <!-- foreground / mid orbs -->
-  <div class="orb orb--large"></div>
-  <div class="orb orb--medium"></div>
-
-  <!-- distant orbs -->
-  <div class="orb orb--tiny"></div>
-  <div class="orb orb--tiny"></div>
-  <div class="orb orb--tiny"></div>
-  <div class="orb orb--tiny"></div>
-  <div class="orb orb--tiny"></div>
-  <div class="orb orb--tiny"></div>
-  <div class="orb orb--tiny"></div>
-  <div class="orb orb--tiny"></div>
-  <div class="orb orb--tiny"></div>
-  <div class="orb orb--tiny"></div>
+<div class="container">
+  <div class="scenery"></div>
+  <div class="fog">
+    <div class="fog__layer fog__layer--1"></div>
+    <div class="fog__layer fog__layer--2"></div>
+  </div>
 </div>
 
 
 <style>
-  body{
-    margin:0;
-    padding:0;
-  }
-  .hero {
+  .container {
   position: relative;
-  width: 100vw;
   height: 100vh;
-  background: url('https://images.unsplash.com/photo-1723739003389-cbcdbd54281a?q=80')
-    center / cover no-repeat;
+  width: 100vw;
+  background: #fff;
+}
+
+.scenery {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url('https://images.unsplash.com/photo-1723739003389-cbcdbd54281a?q=80');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow: hidden;
 }
 
-/* Base orb */
-.orb {
+.fog {
   position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(180,200,255,0.22),
-    rgba(80,90,130,0.09)
-  );
-  filter: blur(6px);
-  mix-blend-mode: screen;
-  animation: float infinite ease-in-out;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  
+  &__layer {
+    position: absolute;
+    height: 100vh;
+    width: 300vw;
+    z-index: 2;
+    
+    &--1 {
+      background: url('https://www.dropbox.com/s/dfdz7cqlpwsp1l9/fog-1.png?raw=1');
+      background-repeat: repeat-x;
+      background-size: contain;
+      background-position: center;
+      animation: marquee 190s linear infinite;
+      -webkit-animation: marquee 190s linear infinite;
+    }
+    
+    &--2 {
+       background: url('https://www.dropbox.com/s/4smivk3tas34moq/fog-2.png?raw=1');
+      background-repeat: repeat-x;
+      background-size: contain;
+      background-position: center;
+      animation: marquee 30s linear infinite;
+      -webkit-animation: marquee 30s linear infinite;
+    }
+  }
 }
 
-/* Large / mid orbs */
-.orb--large {
-  width: 240px;
-  height: 240px;
-  top: 60%;
-  left: 30%;
-  opacity: 0.95;
-  animation-duration: 30s;
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  
+  100% {
+    transform: translate3d(-200vw, 0, 0);
+  }
 }
-.orb--medium {
-  width: 140px;
-  height: 140px;
-  top: 25%;
-  left: 70%;
-  opacity: 0.9;
-  animation-duration: 24s;
+  
+@-webkit-keyframes marquee {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  
+  100% {
+    -webkit-transform: translate3d(-200vw, 0, 0);
+  }
 }
-
-/* Tiny distant orbs */
-.orb--tiny {
-  width: 30px;
-  height: 30px;
-  opacity: 1.92;
-  filter: blur(10px);
-  animation-duration: 40s;
-}
-
-/* Random placement for tiny orbs */
-.orb--tiny:nth-child(3) { top: 10%; left: 15%; }
-.orb--tiny:nth-child(4) { top: 20%; left: 45%; }
-.orb--tiny:nth-child(5) { top: 35%; left: 70%; }
-.orb--tiny:nth-child(6) { top: 50%; left: 25%; }
-.orb--tiny:nth-child(7) { top: 65%; left: 55%; }
-.orb--tiny:nth-child(8) { top: 75%; left: 80%; }
-.orb--tiny:nth-child(9) { top: 85%; left: 10%; }
-.orb--tiny:nth-child(10){ top: 40%; left: 90%; }
-.orb--tiny:nth-child(11){ top: 15%; left: 80%; }
-.orb--tiny:nth-child(12){ top: 60%; left: 5%; }
-
-/* Slow, barely noticeable drift */
-@keyframes float {
-  0%   { transform: translate(0, 0); }
-  50%  { transform: translate(20px, -30px); }
-  100% { transform: translate(0, 0); }
-}
-
 </style>
