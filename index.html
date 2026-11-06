@@ -207,11 +207,21 @@ footer{padding:2.5rem 1.2rem;text-align:center;font-size:.9rem;opacity:.75;backg
   <div class="wrap">
     <h2 id="j-h" class="rv">Stay on the frequency</h2>
     <p class="rv">Coming to Netflix in 2028. Get WSQK Radio updates on Other Worlds before the rest of Marion does.</p>
-    <form id="form" class="rv" novalidate>
+    <form id="form" class="rv" novalidate action="https://submit.jotform.com/submit/263095331187055" method="post" target="jf_target" accept-charset="utf-8" autocomplete="on">
+      <input type="hidden" name="formID" value="263095331187055">
+      <input type="hidden" name="simple_spc" value="263095331187055-263095331187055">
+      <input type="hidden" name="jsExecutionTracker" value="build-date-1793990845861">
+      <input type="hidden" name="submitSource" value="unknown">
+      <input type="hidden" name="submitDate" id="submitDate" value="undefined">
+      <input type="hidden" name="buildDate" value="1793990845861">
+      <input type="hidden" name="uploadServerUrl" value="https://upload.jotform.com/upload">
+      <input type="hidden" name="eventObserver" value="1">
+      <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave this empty <input type="text" name="website" value="" tabindex="-1" autocomplete="off"></label></div>
       <label for="em" class="sr">Email address</label>
-      <input type="email" id="em" name="email" placeholder="you@example.com" autocomplete="email" required>
+      <input type="email" id="em" name="q3_email" placeholder="you@example.com" autocomplete="email" required>
       <button class="btn" type="submit">Send me updates</button>
     </form>
+    <iframe name="jf_target" id="jf_target" title="Signup confirmation" hidden style="display:none"></iframe>
     <p id="fm" role="status" aria-live="polite"></p>
   </div>
 </section>
@@ -298,8 +308,14 @@ footer{padding:2.5rem 1.2rem;text-align:center;font-size:.9rem;opacity:.75;backg
 
   /* Signup (replace with your email service endpoint) */
   var form=document.getElementById('form'),em=document.getElementById('em'),fm=document.getElementById('fm');
-  form.addEventListener('submit',function(e){e.preventDefault();
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value)){fm.textContent='Enter a valid email address, like name@example.com.';em.focus();return}
+  var sent=false,frame=document.getElementById('jf_target'),sd=document.getElementById('submitDate');
+  form.addEventListener('submit',function(e){
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value)){e.preventDefault();fm.textContent='Enter a valid email address, like name@example.com.';em.focus();return}
+    sd.value=Date.now();sent=true;fm.textContent='Sending...';
+    /* form posts to Jotform in the hidden iframe; the page stays put */
+  });
+  frame.addEventListener('load',function(){
+    if(!sent)return;sent=false;
     fm.textContent='You are on the list. Keep the radio on.';form.reset()
   });
 })();
