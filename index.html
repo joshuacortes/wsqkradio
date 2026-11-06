@@ -1,211 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>WSQK Radio – 94.5 FM | Free Internet Radio | Official Website</title>
-  <meta name="description" content="WSQK Radio 94.5 FM – Free Internet Radio streaming retro hits, underground sounds, and late-night frequencies.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1189512042031215"
-     crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Other Worlds | WSQK Radio</title>
+<meta name="description" content="Other Worlds. Marion, Nevada, April 19, 1955. Coming to Netflix in 2028. Tune in on WSQK Radio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#07080c; --ink2:#10121a; --ember:#ff3b4e; --paper:#f2e3c6; --veil:#3ee0d0; --accent:var(--ember);
+  --display:'Bebas Neue',Impact,'Arial Narrow',sans-serif;
+  --type:'Special Elite','Courier New',Courier,monospace;
+  --mx:50%; --my:40%;
+}
+body.veil{--accent:var(--veil)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:var(--type);font-size:1.1rem;line-height:1.65;overflow-x:hidden;transition:filter .8s}
+body.veil{filter:hue-rotate(150deg) saturate(1.1)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--paper);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:0;background:var(--paper);color:var(--ink);padding:.7rem 1rem;z-index:100}
+.skip:focus{left:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B1MCX4J63Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+/* NAV */
+header{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem clamp(1rem,4vw,3rem);background:linear-gradient(#07080cf2,#07080c00)}
+.brand{font-family:var(--display);font-size:1.8rem;letter-spacing:.12em;text-decoration:none}
+nav ul{display:flex;gap:clamp(.8rem,2.5vw,2rem);list-style:none;padding:0}
+nav a{text-decoration:none;font-size:.95rem;padding:.4rem .2rem;border-bottom:2px solid transparent}
+nav a:hover{border-color:var(--accent)}
+.btn{font:inherit;font-family:var(--display);font-size:1.25rem;letter-spacing:.14em;background:var(--accent);color:var(--ink);border:0;padding:.7rem 1.6rem;cursor:pointer;text-decoration:none;display:inline-block;min-height:44px;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 28px var(--accent)}
+.btn.ghost{background:transparent;color:var(--paper);border:2px solid var(--paper)}
+.btn.ghost[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
 
-  gtag('config', 'G-B1MCX4J63Q');
-</script>
-  <!-- Retro Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+/* HERO */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:grid;place-items:center;text-align:center;padding:7rem 1.2rem 5rem;isolation:isolate;overflow:hidden}
+.hero .bg{position:absolute;inset:-4%;z-index:-3;background:url("https://github.com/joshuacortes/wsqkradio/blob/main/photos/hero-image.fill.size_1200x900.v1793977015.jpg?raw=true") center/cover;filter:grayscale(.6) contrast(1.15);animation:drift 40s ease-in-out infinite alternate}
+@keyframes drift{to{transform:scale(1.1) translate(-1.5%,1%)}}
+.hero .shade{position:absolute;inset:0;z-index:-2;background:
+  radial-gradient(circle 260px at var(--mx) var(--my),transparent 0,rgba(7,8,12,.35) 100%),
+  linear-gradient(180deg,rgba(7,8,12,.88),rgba(40,4,10,.78) 55%,rgba(7,8,12,.97));
+  background-blend-mode:normal}
+.hero .glow{position:absolute;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(circle 340px at var(--mx) var(--my),color-mix(in srgb,var(--accent) 22%,transparent),transparent 70%);mix-blend-mode:screen}
+#spores{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.kicker{font-size:clamp(.95rem,2.4vw,1.2rem);letter-spacing:.08em;margin-bottom:1rem;opacity:.9}
+h1{font-family:var(--display);font-weight:400;line-height:.86;font-size:clamp(4.2rem,19vw,15rem);letter-spacing:.04em;color:var(--accent);text-shadow:0 0 12px var(--accent),0 0 48px var(--accent),0 0 120px color-mix(in srgb,var(--accent) 60%,transparent)}
+h1 span{display:block;color:transparent;-webkit-text-stroke:2px var(--accent);text-shadow:0 0 30px var(--accent)}
+h1 .fl{animation:flick 7s infinite}
+@keyframes flick{0%,18%,22%,62%,64%,100%{opacity:1}20%{opacity:.25}63%{opacity:.4}}
+.place{margin:2rem 0 .4rem;font-size:clamp(1.3rem,4vw,2.2rem);letter-spacing:.2em;font-family:var(--display)}
+.when{font-size:clamp(1.2rem,3.2vw,1.8rem);font-family:var(--display);letter-spacing:.18em;background:var(--paper);color:var(--ink);display:inline-block;padding:.2rem 1.1rem;margin-top:.8rem}
+.tag{max-width:36rem;margin:1.6rem auto 2rem;opacity:.92}
+.cta{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+.scroll{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);font-size:.85rem;opacity:.7;text-decoration:none}
+.scroll::after{content:"";display:block;width:2px;height:34px;margin:.4rem auto 0;background:var(--paper);animation:pulse 2s infinite}
+@keyframes pulse{50%{transform:scaleY(.3);transform-origin:top}}
 
-  <style>
-    body {
-      margin: 0;
-      background: radial-gradient(circle at top, #1b0033, #000);
-      color: #00ffcc;
-      font-family: 'Orbitron', sans-serif;
-      text-align: center;
-    }
+/* SECTIONS */
+section{position:relative;padding:clamp(4rem,10vw,8rem) clamp(1.2rem,6vw,5rem)}
+.wrap{max-width:68rem;margin:0 auto}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(2.6rem,8vw,5.5rem);line-height:1;letter-spacing:.05em;margin-bottom:1.5rem;color:var(--accent)}
+p{max-width:44rem}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
 
-    header {
-      padding: 40px 20px;
-      background: linear-gradient(90deg, #ff00ff, #00ffff);
-      box-shadow: 0 0 20px #ff00ff;
-    }
+/* DIAL */
+#tune{background:linear-gradient(var(--ink),var(--ink2))}
+.radio{margin-top:2.5rem;border:3px solid var(--paper);padding:clamp(1.2rem,4vw,2.5rem);background:#0b0d14;box-shadow:0 0 0 6px #0b0d14,0 0 0 8px #f2e3c655}
+.freq{font-family:var(--display);font-size:clamp(4rem,14vw,8rem);line-height:1;color:var(--accent);text-shadow:0 0 20px var(--accent)}
+.freq small{font-size:.35em;letter-spacing:.2em;color:var(--paper);text-shadow:none}
+.scale{height:36px;margin:1rem 0 .4rem;background:repeating-linear-gradient(90deg,var(--paper) 0 2px,transparent 2px 20px);opacity:.5;mask:linear-gradient(transparent 0,#000 0);}
+input[type=range]{width:100%;height:44px;background:transparent;accent-color:var(--accent);cursor:pointer}
+.signal{height:10px;background:#222;margin:1rem 0}
+.signal i{display:block;height:100%;width:0;background:var(--accent);box-shadow:0 0 14px var(--accent);transition:width .15s}
+.msg{min-height:5.5rem;font-size:1.15rem}
+.msg.lock{color:var(--accent)}
+.ctl{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}
 
-    header h1 {
-      font-family: 'Press Start 2P', monospace;
-      color: #000;
-      margin: 0;
-      font-size: 1.8rem;
-      text-shadow: 2px 2px #fff;
-    }
+/* FILE */
+#file{background:var(--ink2)}
+.paper{background:var(--paper);color:#1a1510;padding:clamp(1.4rem,4vw,3rem);transform:rotate(-.6deg);box-shadow:0 20px 60px #000a;max-width:46rem}
+.paper h3{font-family:var(--display);font-weight:400;font-size:2.2rem;letter-spacing:.08em;border-bottom:2px solid #1a1510;margin-bottom:1rem}
+.paper dl{display:grid;grid-template-columns:auto 1fr;gap:.3rem 1.2rem}
+.paper dt{font-weight:700}
+.paper p{margin-top:1rem}
+.red{font:inherit;background:#15110c;color:#15110c;border:0;padding:0 .3rem;cursor:pointer;transition:background .3s,color .3s}
+.red[aria-pressed="true"]{background:transparent;color:#a3101f}
+.hint{margin-top:1.5rem;opacity:.7;font-size:.95rem}
 
-    header p {
-      margin-top: 10px;
-      color: #000;
-      font-weight: bold;
-    }
+/* WORLDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.2rem;margin-top:2rem}
+.card{font:inherit;color:inherit;text-align:left;background:#0d0f17;border:2px solid #f2e3c63a;padding:1.4rem;cursor:pointer;min-height:11rem;transition:border-color .2s,transform .2s}
+.card:hover,.card[aria-expanded="true"]{border-color:var(--accent);transform:translateY(-4px)}
+.card b{display:block;font-family:var(--display);font-weight:400;font-size:2rem;letter-spacing:.07em;color:var(--accent)}
+.card span{display:none;margin-top:.6rem}
+.card[aria-expanded="true"] span{display:block}
+.card em{font-style:normal;opacity:.6;font-size:.9rem}
 
-    nav {
-      background: #000;
-      border-top: 3px double #00ffff;
-      border-bottom: 3px double #00ffff;
-      padding: 12px;
-    }
+/* SIGNUP */
+#join{text-align:center;background:radial-gradient(ellipse at center,#3a0a12,var(--ink) 70%)}
+#join p{margin:0 auto 1.6rem}
+form{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center}
+input[type=email]{font:inherit;padding:.8rem 1rem;min-width:min(100%,20rem);min-height:44px;background:var(--ink);color:var(--paper);border:2px solid var(--paper)}
+#fm{min-height:1.8rem;margin-top:1rem}
+footer{padding:2.5rem 1.2rem;text-align:center;font-size:.9rem;opacity:.75;background:var(--ink)}
 
-    nav a {
-      color: #ffcc00;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      color: #00ffff;
-      text-shadow: 0 0 8px #00ffff;
-    }
-
-    .hero {
-      padding: 60px 20px;
-    }
-
-    .hero h2 {
-      color: #ff33ff;
-      text-shadow: 0 0 10px #ff33ff;
-      font-size: 2rem;
-    }
-
-    .hero p {
-      max-width: 700px;
-      margin: 20px auto;
-      color: #00ffcc;
-      font-size: 1.1rem;
-    }
-
-    .listen-btn {
-      display: inline-block;
-      margin: 20px;
-      padding: 18px 40px;
-      background: #ff00ff;
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.9rem;
-      border: 4px double #00ffff;
-      box-shadow: 0 0 15px #ff00ff;
-      transition: all 0.2s ease;
-    }
-
-    .listen-btn:hover {
-      background: #00ffff;
-      color: #000;
-      box-shadow: 0 0 25px #00ffff;
-      transform: scale(1.05);
-    }
-
-    .alt-btn {
-      background: #330033;
-      box-shadow: 0 0 15px #9900ff;
-    }
-
-    .marquee {
-      margin: 40px 0;
-      background: yellow;
-      color: red;
-      font-weight: bold;
-      padding: 8px;
-      font-family: monospace;
-    }
-
-    footer {
-      background: #000;
-      color: #00ffcc;
-      padding: 20px;
-      border-top: 3px dotted #00ffff;
-      font-size: 0.9rem;
-    }
-
-    .blink {
-      animation: blink 1s steps(2, start) infinite;
-    }
-
-    @keyframes blink {
-      to { visibility: hidden; }
-    }
-  </style>
+@media (max-width:640px){
+  nav ul{display:none}
+  h1 span{-webkit-text-stroke-width:1.5px}
+  .paper{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+</style>
 </head>
-
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-  <header>
-    <h1>WSQK RADIO</h1>
-    <p>94.5 FM • INTERNET RADIO</p>
-  </header>
-
-  <nav>
-    <a href="/">Home</a>
-    <a href="/play">Listen</a>
-    <a href="/subscribe">Subscribe</a>
-    <a href="/about">About</a>
-    <a href="/hawkins-indiana">Hawkins</a>
-    <a href="/contact">Contact</a>
-  </nav>
-
+<header>
+  <a class="brand" href="#top" aria-label="WSQK Radio home">WSQK</a>
+  <nav aria-label="Main">
   
-  
-  
-  
-  
-  <section class="hero">
-  <h2>WELCOME TO WSQKRADIO.COM</h2>
+</header>
 
-  <p>
-    You’ve tuned into <strong>WSQK Radio 94.5 FM</strong> — a free internet radio
-    station broadcasting retro frequencies, underground sounds, and late-night
-    transmissions from the edge of the dial.
-  </p>
-
-  <p>
-    We’re happy to have you here. Explore the site, lock into the signal, and
-    enjoy nonstop music, throwback vibes, and transmissions you won’t hear
-    anywhere else.
-  </p>
-
-  <a href="/play" class="listen-btn">▶ LISTEN LIVE</a>
-  <a href="/hawkins-indiana" class="listen-btn alt-btn">VISIT HAWKINS</a>
-
-      <div class="marquee">
-    <marquee>
-      📡 NOW BROADCASTING • 24/7 STREAM • RETRO • SYNTH • ALT • CLASSIC • WSQK RADIO 📡
-    </marquee>
+<main id="main">
+<div class="hero" id="top" role="region" aria-label="Other Worlds introduction">
+  <div class="bg" role="img" aria-label="Moody dark backdrop for the Other Worlds series"></div>
+  <div class="shade"></div><div class="glow"></div>
+  <canvas id="spores" aria-hidden="true"></canvas>
+  <div>
+    <p class="kicker">WSQK Radio presents a story from the world of Stranger Things</p>
+    <h1><span class="fl">Other</span>Worlds</h1>
+    <p class="place">Marion, Nevada</p>
+    <p class="when"><time datetime="1955-04-19">April 19, 1955</time></p>
+    <p class="tag">The signal came in at 3:12 a.m. Nobody in town admits to hearing it.</p>
+    <div class="cta">
+      <a class="btn" href="#tune">Find the signal</a>
+      <a class="btn ghost" href="#join">Coming to Netflix in 2028</a>
+    </div>
   </div>
-    
+  <a class="scroll" href="#tune">Scroll</a>
+</div>
+
+<section id="tune" aria-labelledby="t-h">
+  <div class="wrap">
+    <h2 id="t-h" class="rv">Tune the dial</h2>
+    <p class="rv">Something is transmitting between the stations. Slide the dial across the band and listen for it. Turn sound on for static that fades as you get closer.</p>
+    <div class="radio rv">
+      <div class="freq" aria-hidden="true"><span id="fv">88.0</span> <small>MHz</small></div>
+      <div class="scale" aria-hidden="true"></div>
+      <label for="dial" class="sr">Radio frequency, 88 to 108 megahertz</label>
+      <input type="range" id="dial" min="880" max="1080" step="1" value="880" aria-describedby="msg">
+      <div class="signal" aria-hidden="true"><i id="sig"></i></div>
+      <p class="msg" id="msg" role="status" aria-live="polite">Only static so far.</p>
+      <div class="ctl"><button class="btn ghost" id="snd" aria-pressed="false">Sound off</button></div>
+    </div>
+  </div>
 </section>
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+<section id="file" aria-labelledby="f-h">
+  <div class="wrap">
+    <h2 id="f-h" class="rv">The file</h2>
+    <div class="paper rv">
+      <h3>Incident report</h3>
+      <dl>
+        <dt>Date</dt><dd>April 19, 1955</dd>
+        <dt>Place</dt><dd>Marion, Nevada</dd>
+        <dt>Status</dt><dd>Sealed</dd>
+        <dt>Series</dt><dd>Other Worlds, coming to Netflix in 2028</dd>
+      </dl>
+      <p>At dusk the town's lights dimmed in sequence, street by street. By morning, <button class="red" aria-pressed="false">████████ ██ ███</button> had left the town and the radio mast at the edge of Marion was found <button class="red" aria-pressed="false">████ ██████ ████</button>.</p>
+      <p>The last log entry reads: do not answer it.</p>
+    </div>
+    <p class="hint rv">Select a black bar to read what was redacted.</p>
+  </div>
+</section>
 
-  <footer>
-    <p>© 1985–2026 WSQK Radio. All Rights Reserved.</p>
-    <br>
-  </footer>
+<section id="worlds" aria-labelledby="w-h">
+  <div class="wrap">
+    <h2 id="w-h" class="rv">Four ways in</h2>
+    <p class="rv">Select a card to see what is waiting behind it.</p>
+    <div class="grid rv">
+      <button class="card" aria-expanded="false"><b>The town</b><em>Marion, Nevada</em><span>A desert town of 1,100 people, one diner and one radio mast. It is April 19, 1955, and the lights go out one street at a time.</span></button>
+      <button class="card" aria-expanded="false"><b>The signal</b><em>3:12 a.m.</em><span>A broadcast on a frequency that does not exist. It repeats a name that belongs to someone who has not been born yet.</span></button>
+      <button class="card" aria-expanded="false"><b>The mast</b><em>Edge of town</em><span>Forty feet of steel with no maintenance record. Birds avoid it. Compasses spin near it.</span></button>
+      <button class="card" aria-expanded="false"><b>The other side</b><em>Not on any map</em><span>What the signal is calling to is closer than anyone in Marion wants to believe.</span></button>
+    </div>
+  </div>
+</section>
 
-  <script>
-    console.log("WSQK Radio signal locked.");
-  </script>
 
+</main>
+
+<footer>
+  <p>&copy; <span id="yr">2026</span> WSQK Radio. Other Worlds is an original promotion. Coming to Netflix in 2028.</p>
+</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root=document.documentElement, hero=document.getElementById('top');
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  /* Flashlight follows pointer; drifts on its own when idle */
+  var idle=true, t0=0;
+  function setLight(x,y){root.style.setProperty('--mx',x+'px');root.style.setProperty('--my',y+'px')}
+  hero.addEventListener('pointermove',function(e){idle=false;var r=hero.getBoundingClientRect();setLight(e.clientX-r.left,e.clientY-r.top)});
+  hero.addEventListener('pointerleave',function(){idle=true});
+
+  /* Spores */
+  var cv=document.getElementById('spores'),cx=cv.getContext('2d'),P=[],W,H,ptr={x:-999,y:-999},up=false;
+  function size(){var d=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);
+    var n=Math.round(Math.min(160,W*H/9000));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2.2+.4,vx:(Math.random()-.5)*.25,vy:-(Math.random()*.35+.08),a:Math.random()*.6+.25,p:Math.random()*6})}
+  hero.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top});
+  hero.addEventListener('pointerleave',function(){ptr.x=ptr.y=-999});
+  function draw(t){
+    cx.clearRect(0,0,W,H);
+    var col=getComputedStyle(document.body).getPropertyValue('--accent').trim()||'#ff3b4e';
+    for(var i=0;i<P.length;i++){var s=P[i],dx=s.x-ptr.x,dy=s.y-ptr.y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<120&&d>0){s.x+=dx/d*(120-d)*.03;s.y+=dy/d*(120-d)*.03}
+      s.p+=.01;s.x+=s.vx+Math.sin(s.p)*.2;s.y+=up?-s.vy:s.vy;
+      if(s.y<-5)s.y=H+5;if(s.y>H+5)s.y=-5;if(s.x<-5)s.x=W+5;if(s.x>W+5)s.x=-5;
+      cx.globalAlpha=s.a*(.6+.4*Math.sin(s.p*2));cx.fillStyle=(i%5===0)?col:'#f2e3c6';
+      cx.beginPath();cx.arc(s.x,s.y,s.r,0,6.283);cx.fill()}
+    if(idle&&!reduce){var r=hero.getBoundingClientRect();t0=t/1000;setLight(r.width*(.5+.3*Math.sin(t0*.3)),r.height*(.42+.2*Math.cos(t0*.23)))}
+    if(!reduce)requestAnimationFrame(draw)
+  }
+  size();addEventListener('resize',size);
+  if(reduce){setLight(hero.clientWidth/2,hero.clientHeight*.4);draw(0)}else requestAnimationFrame(draw);
+
+  /* Veil toggle */
+  var vb=document.getElementById('veilBtn');
+  vb.addEventListener('click',function(){var on=document.body.classList.toggle('veil');vb.setAttribute('aria-pressed',on);vb.textContent=on?'Return':'Cross the veil';up=on});
+
+  /* Scroll reveals */
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window&&!reduce){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});els.forEach(function(e){io.observe(e)})}
+  else els.forEach(function(e){e.classList.add('in')});
+
+  /* Dial */
+  var dial=document.getElementById('dial'),fv=document.getElementById('fv'),sig=document.getElementById('sig'),msg=document.getElementById('msg'),snd=document.getElementById('snd');
+  var TARGET=93.3, ac,gain,on=false;
+  var frags=[[.5,'...two... three... do not...'],[1.2,'A voice, very far away, repeating a name.'],[2.5,'Static, and under it, something rhythmic.']];
+  function update(){
+    var f=dial.value/10, d=Math.abs(f-TARGET), s=Math.max(0,1-d/4);
+    fv.textContent=f.toFixed(1);sig.style.width=(s*100)+'%';
+    var locked=d<.25;
+    msg.classList.toggle('lock',locked);
+    if(locked)msg.textContent='Signal locked at '+TARGET.toFixed(1)+'. Other Worlds. Marion, Nevada, April 19, 1955. Coming to Netflix in 2028.';
+    else{var m='Only static so far.';for(var i=0;i<frags.length;i++)if(d<frags[i][0]+ (i===0?0:0)){m=frags[i][1];break}
+      if(d>=2.5)m='Only static so far.';msg.textContent=m}
+    if(gain)gain.gain.value=locked?.004:.12*(1-s)*(1-s)+.01
+  }
+  dial.addEventListener('input',update);update();
+  snd.addEventListener('click',function(){
+    on=!on;snd.setAttribute('aria-pressed',on);snd.textContent=on?'Sound on':'Sound off';
+    if(on&&!ac){var A=window.AudioContext||window.webkitAudioContext;if(!A){return}
+      ac=new A();var b=ac.createBuffer(1,ac.sampleRate*2,ac.sampleRate),a=b.getChannelData(0);for(var i=0;i<a.length;i++)a[i]=Math.random()*2-1;
+      var src=ac.createBufferSource();src.buffer=b;src.loop=true;gain=ac.createGain();src.connect(gain);gain.connect(ac.destination);src.start();update()}
+    if(ac){on?ac.resume():ac.suspend()}
+  });
+
+  /* Redactions */
+  document.querySelectorAll('.red').forEach(function(b){
+    var hidden=b.textContent,shown=b===document.querySelectorAll('.red')[0]?'the entire town council':'bent flat and humming';
+    b.setAttribute('aria-label','Redacted text. Select to reveal.');
+    b.addEventListener('click',function(){var p=b.getAttribute('aria-pressed')==='true';b.setAttribute('aria-pressed',!p);b.textContent=p?hidden:shown;b.setAttribute('aria-label',p?'Redacted text. Select to reveal.':shown)})
+  });
+
+  /* Cards */
+  document.querySelectorAll('.card').forEach(function(c){c.addEventListener('click',function(){c.setAttribute('aria-expanded',c.getAttribute('aria-expanded')!=='true')})});
+
+  /* Signup (replace with your email service endpoint) */
+  var form=document.getElementById('form'),em=document.getElementById('em'),fm=document.getElementById('fm');
+  form.addEventListener('submit',function(e){e.preventDefault();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value)){fm.textContent='Enter a valid email address, like name@example.com.';em.focus();return}
+    fm.textContent='You are on the list. Keep the radio on.';form.reset()
+  });
+})();
+</script>
 </body>
 </html>
